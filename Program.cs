@@ -1,5 +1,8 @@
 using System;
 
+/// <summary>
+/// Entry point for the Minesweeper console application.
+/// </summary>
 class Program
 {
     static void Main()

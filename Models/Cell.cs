@@ -1,3 +1,6 @@
+/// <summary>
+/// Represents a single cell in the Minesweeper grid.
+/// </summary>
 public class Cell
 {
     public bool IsMine { get; set; }

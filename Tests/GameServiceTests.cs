@@ -1,5 +1,9 @@
 using NUnit.Framework;
 
+
+/// <summary>
+/// Unit tests for the GameService logic.
+/// </summary>
 [TestFixture]
 public class GameServiceTests
 {
@@ -16,7 +20,7 @@ public class GameServiceTests
         var game = new GameService();
         game.Initialize(4, 1);
         game.Reveal("A1");
-        Assert.IsFalse(game.IsGameOver);
+        Assert.That(!game.IsGameOver);
     }
 
     [Test]
@@ -24,10 +28,20 @@ public class GameServiceTests
     {
         var game = new GameService();
         game.Initialize(2, 1);
-        // Uncover 3 safe cells assuming 1 mine
         game.Reveal("A1");
         game.Reveal("A2");
         game.Reveal("B1");
-        Assert.IsTrue(game.IsGameWon || game.IsGameOver);
+        Assert.That(game.IsGameWon || game.IsGameOver);
+    }
+
+    [Test]
+    public void Test_DisplayBoardFormat_ValidString()
+    {
+        var game = new GameService();
+        game.Initialize(3, 0);
+        game.Reveal("A1");
+        var board = game.GetBoardDisplay();
+        Assert.That(board.Contains('A'));
+        Assert.That(board.Contains('1'));
     }
 }

@@ -1,3 +1,6 @@
+/// <summary>
+/// Helper class to convert user input into grid coordinates.
+/// </summary>
 public class Coordinate
 {
     public int Row { get; }

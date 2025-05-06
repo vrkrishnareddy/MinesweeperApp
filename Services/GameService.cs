@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Main game service implementing the Minesweeper game logic.
+/// </summary>
 public class GameService : IGameService
 {
     private GameBoard board;
@@ -21,6 +24,9 @@ public class GameService : IGameService
         CalculateAdjacents();
     }
 
+    /// <summary>
+    /// Randomly places mines on the board.
+    /// </summary>
     private void PlaceMines()
     {
         Random rand = new();
@@ -37,6 +43,9 @@ public class GameService : IGameService
         }
     }
 
+    /// <summary>
+    /// Calculates the number of adjacent mines for each cell.
+    /// </summary>
     private void CalculateAdjacents()
     {
         for (int r = 0; r < board.Size; r++)
@@ -66,6 +75,9 @@ public class GameService : IGameService
         RevealRecursive(coord.Row, coord.Col);
     }
 
+    /// <summary>
+    /// Recursively reveals cells, automatically expanding zero-adjacent-mine cells.
+    /// </summary>
     private void RevealRecursive(int r, int c)
     {
         if (!board.IsInBounds(r, c) || board.Grid[r, c].IsRevealed)
@@ -90,6 +102,9 @@ public class GameService : IGameService
         }
     }
 
+    /// <summary>
+    /// Returns a string representation of the current board state.
+    /// </summary>
     public string GetBoardDisplay()
     {
         var display = "  ";

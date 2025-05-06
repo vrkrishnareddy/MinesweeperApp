@@ -1,3 +1,6 @@
+/// <summary>
+/// Represents the game board grid.
+/// </summary>
 public class GameBoard
 {
     public int Size { get; }
@@ -7,10 +10,10 @@ public class GameBoard
     {
         Size = size;
         Grid = new Cell[size, size];
-        for (int r = 0; r < size; r++)
-            for (int c = 0; c < size; c++)
-                Grid[r, c] = new Cell();
+        for (int row = 0; row < size; row++)
+            for (int col = 0; col < size; col++)
+                Grid[row, col] = new Cell();
     }
 
-    public bool IsInBounds(int r, int c) => r >= 0 && c >= 0 && r < Size && c < Size;
+    public bool IsInBounds(int row, int col) => row >= 0 && col >= 0 && row < Size && col < Size;
 }

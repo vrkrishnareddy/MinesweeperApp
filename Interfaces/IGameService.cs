@@ -1,3 +1,6 @@
+/// <summary>
+/// Interface defining the contract for the Minesweeper game logic.
+/// </summary>
 public interface IGameService
 {
     void Initialize(int size, int mineCount);
